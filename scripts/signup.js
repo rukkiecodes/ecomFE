@@ -8,6 +8,7 @@ button.addEventListener('click', () => {
     if (!name.value || !email.value || !password.value) {
         alert('Please complete the form and try again');
     } else {
+        button.innerText = 'Signing Up...'
         fetch('https://ecom-production-c7d8.up.railway.app/auth/signup', {
             method: 'POST', // Use uppercase 'POST'
             headers: {
@@ -21,10 +22,12 @@ button.addEventListener('click', () => {
         })
             .then(response => response.json()) // Assuming the response is JSON
             .then(data => {
+                button.innerText = 'Sign Up'
                 localStorage.ecomUser = JSON.stringify(data)
                 location.replace('/index.html')
             })
             .catch(err => {
+                button.innerText = 'Sign Up'
                 console.error(err); // Handle any errors
             });
     }
