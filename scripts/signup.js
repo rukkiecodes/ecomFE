@@ -8,7 +8,7 @@ button.addEventListener('click', () => {
     if (!name.value || !email.value || !password.value) {
         alert('Please complete the form and try again');
     } else {
-        fetch('https://ecom-production-55db.up.railway.app/auth/signup', {
+        fetch('https://ecom-production-c7d8.up.railway.app/auth/signup', {
             method: 'POST', // Use uppercase 'POST'
             headers: {
                 "Content-Type": "application/json", // Correct header
