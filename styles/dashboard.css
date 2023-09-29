@@ -221,11 +221,55 @@ main {
   flex: 1;
   height: 90vh;
   width: calc(100vw - 250px);
+  padding: 1em 0;
 }
 @media (max-width: 768px) {
   main {
     width: 100vw;
   }
+}
+main .cards {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+main .cards .card {
+  width: 24%;
+  margin-bottom: 1em;
+  overflow: hidden;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 1em;
+  margin: 0 0.5em;
+}
+main .cards .card:first-child {
+  margin-left: 1em;
+}
+main .cards .card .imageHolder {
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+}
+main .cards .card .imageHolder img {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+main .cards .card .itemName {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+}
+main .cards .card button {
+  background-color: transparent;
+  border: 1px solid black;
+  width: 100%;
+  height: 3em;
+  font-size: 1em;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 .openAside {
