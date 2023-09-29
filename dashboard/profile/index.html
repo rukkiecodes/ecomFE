@@ -12,7 +12,14 @@
 
 <body>
     <nav>
-        <h1 class="appTitle">Pawn Shop</h1>
+        <div class="left">
+            <div class="menu">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <h1 class="appTitle">Pawn Shop</h1>
+        </div>
 
         <div class="chip">
             <div class="navAvatar"></div>
@@ -21,13 +28,16 @@
         </div>
     </nav>
 
-    <aside>
+    <aside class="aside">
+        <div class="buttonDiv">
+            <button>x</button>
+        </div>
+        
         <a href="/dashboard">Dashboard</a>
         <a href="/dashboard/profile">Profile</a>
     </aside>
 
-    <main>
-
+    <main class="profileMain">
         <div class="card">
             <div class="avatar"> </div>
 
@@ -41,6 +51,7 @@
     </main>
 
     <script src="../../scripts/profile.js"></script>
+    <script src="../../scripts/dashboard.js"></script>
 </body>
 
 </html>

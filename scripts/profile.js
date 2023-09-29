@@ -3,7 +3,7 @@ const userName = document.querySelector('.card h1')
 const nameInput = document.querySelector('.nameInput')
 const phoneInput = document.querySelector('.phoneInput')
 const imageInput = document.querySelector('.imageInput')
-const button = document.querySelector('button');
+const updateProfileButton = document.querySelector('.profileMain button');
 
 const navAvatar = document.querySelector('.navAvatar')
 const username = document.querySelector('.username')
@@ -46,10 +46,10 @@ const fetchProfile = async () => {
 })()
 
 
-button?.addEventListener('click', async () => {
+updateProfileButton?.addEventListener('click', async () => {
     const email = await JSON.parse(localStorage.ecomUser).user.email
 
-    button.innerText = 'Loading...'
+    updateProfileButton.innerText = 'Loading...'
 
     fetch('https://ecom-production-c7d8.up.railway.app/auth/updateProfile', {
         method: 'POST', // Use uppercase 'POST'
@@ -66,11 +66,11 @@ button?.addEventListener('click', async () => {
         .then(() => {
             fetchProfile()
 
-            button.innerText = 'Update profile'
+            updateProfileButton.innerText = 'Update profile'
         })
         .catch(err => {
             console.error(err); // Handle any errors
-            button.innerText = 'Update profile'
+            updateProfileButton.innerText = 'Update profile'
         });
 })
 
