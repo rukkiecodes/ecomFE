@@ -24,6 +24,43 @@ nav {
     height: 10vh;
     width: 100%;
     border-bottom: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1em;
+
+    .chip {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        .navAvatar {
+            width: 35px;
+            height: 35px;
+            border-radius: 100%;
+            border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .usernameShort {
+            font-weight: 900;
+        }
+
+        img {
+            width: 35px;
+            height: 35px;
+            border-radius: 100%;
+            object-fit: cover;
+        }
+
+        .username {
+            margin-left: 1em;
+            font-weight: 900;
+        }
+    }
 }
 
 aside {
@@ -47,6 +84,6 @@ aside {
 }
 
 main {
-    flex: 1; 
+    flex: 1;
     height: calc(100vh - 10vh);
 }

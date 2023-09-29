@@ -121,6 +121,39 @@ nav {
   height: 10vh;
   width: 100%;
   border-bottom: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1em;
+}
+nav .chip {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+nav .chip .navAvatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+nav .chip .usernameShort {
+  font-weight: 900;
+}
+nav .chip img {
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+nav .chip .username {
+  margin-left: 1em;
+  font-weight: 900;
 }
 
 aside {

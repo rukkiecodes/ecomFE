@@ -1,9 +1,12 @@
 const userNameCar = document.querySelector('.avatar')
-const userName = document.querySelector('h1')
+const userName = document.querySelector('.card h1')
 const nameInput = document.querySelector('.nameInput')
 const phoneInput = document.querySelector('.phoneInput')
 const imageInput = document.querySelector('.imageInput')
 const button = document.querySelector('button');
+
+const navAvatar = document.querySelector('.navAvatar')
+const username = document.querySelector('.username')
 
 const fetchProfile = async () => {
     const email = await JSON.parse(localStorage.ecomUser).user.email
@@ -21,12 +24,16 @@ const fetchProfile = async () => {
         .then(data => {
             let user = data.user
 
-            userNameCar.innerHTML = user.avatar ? `<img class="avatarImage" src="${user.avatar}" />` : `<span>${user.name.charAt(0)}</span>`
+            // update content on profile page
+            if (userNameCar) userNameCar.innerHTML = user.avatar ? `<img class="avatarImage" src="${user.avatar}" />` : `<span>${user.name.charAt(0)}</span>`
+            if (userName) userName.innerText = user.name
+            if (nameInput) nameInput.value = user.name
+            if (phoneInput) phoneInput.value = user.phone
+            
+            // update content on dashboard
+            if (username.innerText) username.innerText = user.name
+            if (navAvatar) navAvatar.innerHTML = user.avatar ? `<img class="avatarImage" src="${user.avatar}" />` : `<span>${user.name.charAt(0)}</span>`
 
-
-            userName.innerText = user.name
-            nameInput.value = user.name
-            phoneInput.value = user.phone
         })
         .catch(err => {
             console.error(err); // Handle any errors
@@ -39,7 +46,7 @@ const fetchProfile = async () => {
 })()
 
 
-button.addEventListener('click', async () => {
+button?.addEventListener('click', async () => {
     const email = await JSON.parse(localStorage.ecomUser).user.email
 
     button.innerText = 'Loading...'
@@ -67,7 +74,7 @@ button.addEventListener('click', async () => {
         });
 })
 
-imageInput.addEventListener('change', async (e) => {
+imageInput?.addEventListener('change', async (e) => {
     const email = await JSON.parse(localStorage.ecomUser).user.email
 
     const file = e.target.files[0];
