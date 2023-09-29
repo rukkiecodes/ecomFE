@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell Item</title>
+
+    <link rel="stylesheet" href="../../styles/dashboard.css">
+    <link rel="stylesheet" href="../../styles/sell.css">
+</head>
+
+<body>
+    <nav>
+        <div class="left">
+            <div class="menu">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <h1 class="appTitle">Pawn Shop</h1>
+        </div>
+
+        <div class="chip">
+            <div class="navAvatar"></div>
+
+            <span class="username">...</span>
+        </div>
+    </nav>
+
+    <aside class="aside">
+        <div class="buttonDiv">
+            <button>x</button>
+        </div>
+
+        <a href="/dashboard">Dashboard</a>
+        <a href="/dashboard/sell">Sell</a>
+        <a href="/dashboard/profile">Profile</a>
+    </aside>
+
+    <main class="sellMain">
+        <div class="card">
+            <div class="left">
+                <div class="imageDiv"></div>
+            </div>
+            <div class="right">
+                <input type="text" placeholder="Name" class="itemName">
+                <input type="file" placeholder="Item Image" class="itemImage">
+                <input type="number" placeholder="Price" class="itemPrice">
+                <input type="text" placeholder="Description" class="itemDescription">
+                <input type="text" placeholder="Availability" class="itemAvailability">
+                <input type="text" placeholder="Brand" class="itemBrand">
+                <input type="text" placeholder="Category" class="itemCategory">
+                <input type="text" placeholder="Condition" class="itemCondition">
+                <input type="number" placeholder="shippingCost" class="itemshippingCost">
+
+                <button>Add Item</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="../../scripts/sell.js"></script>
+    <script src="../../scripts/profile.js"></script>
+    <script src="../../scripts/dashboard.js"></script>
+</body>
+
+</html>
