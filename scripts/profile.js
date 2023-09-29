@@ -1,7 +1,8 @@
-const userNameCar = document.querySelector('.avatar span')
+const userNameCar = document.querySelector('.avatar')
 const userName = document.querySelector('h1')
 const nameInput = document.querySelector('.nameInput')
 const phoneInput = document.querySelector('.phoneInput')
+const imageInput = document.querySelector('.imageInput')
 const button = document.querySelector('button');
 
 const fetchProfile = async () => {
@@ -20,7 +21,9 @@ const fetchProfile = async () => {
         .then(data => {
             let user = data.user
 
-            userNameCar.innerText = user.name.charAt(0)
+            userNameCar.innerHTML = user.avatar ? `<img class="avatarImage" src="${user.avatar}" />` : `<span>${user.name.charAt(0)}</span>`
+
+
             userName.innerText = user.name
             nameInput.value = user.name
             phoneInput.value = user.phone
@@ -30,9 +33,11 @@ const fetchProfile = async () => {
         });
 }
 
+
 (() => {
     fetchProfile()
 })()
+
 
 button.addEventListener('click', async () => {
     const email = await JSON.parse(localStorage.ecomUser).user.email
@@ -59,5 +64,42 @@ button.addEventListener('click', async () => {
         .catch(err => {
             console.error(err); // Handle any errors
             button.innerText = 'Update profile'
+        });
+})
+
+imageInput.addEventListener('change', async (e) => {
+    const email = await JSON.parse(localStorage.ecomUser).user.email
+
+    const file = e.target.files[0];
+
+    if (!file) {
+        console.log('No file selected');
+        return;
+    }
+
+    let formData = new FormData()
+    let myHeaders = new Headers()
+
+    myHeaders.append("Accept", "multipart/form-data")
+
+    // Create a FormData object to send the file
+    formData.append('avatar', file);
+    formData.append('email', email);
+
+    let requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: formData,
+    }
+
+    fetch('https://ecom-production-c7d8.up.railway.app/auth/avatar', requestOptions)
+        .then(response => response.json()) // Assuming the response is JSON
+        .then((response) => {
+            if (response.message == 'Avatar updated') {
+                fetchProfile()
+            }
+        })
+        .catch(err => {
+            console.error(err)
         });
 })
